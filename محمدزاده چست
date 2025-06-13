@@ -1,0 +1,13 @@
+import openai
+
+openai.api_key = "کلید_API_تو"
+
+audio_file = open("voice.mp3", "rb")
+
+transcript = openai.Audio.transcribe(
+    model="whisper-1",
+    file=audio_file,
+    language="fa"  # اگر فارسی هست
+)
+
+print(transcript["text"])
